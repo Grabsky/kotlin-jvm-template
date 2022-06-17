@@ -15,6 +15,7 @@ application {
 }
 
 repositories {
+    mavenCentral()
     maven("https://jitpack.io")
     // ...
 }
@@ -27,14 +28,14 @@ dependencies {
 
 tasks {
     assemble {
-        dependsOn(jar)
+        dependsOn(shadowJar)
         doLast {
             // Copying output file to builds directory
             copy {
-                from(jar)
+                from(shadowJar)
                 into(buildsDirectory)
                 // Renaming output file
-                rename(jar.get().archiveFileName.get(), "${rootProject.name}.jar")
+                rename(shadowJar.get().archiveFileName.get(), "${rootProject.name}.jar")
             }
         }
     }
