@@ -1,4 +1,4 @@
-val buildsDirectory = "${System.getenv("DEVELOPMENT_DIR")}/builds"
+val buildsDirectory = (System.getenv("DEVELOPMENT_DIR") ?: ".") + File.separator + "builds"
 
 group = "just.testing"
 version = "1.0-SNAPSHOT"
@@ -16,7 +16,6 @@ application {
 
 repositories {
     mavenCentral()
-    maven("https://jitpack.io")
     // ...
 }
 
@@ -35,7 +34,7 @@ tasks {
                 from(shadowJar)
                 into(buildsDirectory)
                 // Renaming output file
-                rename(shadowJar.get().archiveFileName.get(), "${rootProject.name}.jar")
+                rename(shadowJar.get().archiveFileName.get(), "${rootProject.name}_${version}.jar")
             }
         }
     }
