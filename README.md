@@ -1,5 +1,5 @@
-# kotlin-jvm-template
-Project template I use as a base for standalone **Kotlin/JVM** applications.
+> **Warning**  
+> This template is outdated and now archived.
 
 ### Setup Guide
 1. Clone the repository: `git clone https://github.com/Grabsky/kotlin-jvm-template`
